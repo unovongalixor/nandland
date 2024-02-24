@@ -1,5 +1,8 @@
 all: analyze place pack program
 
+test:
+	$(MAKE) -C tests
+
 analyze: hdl/debounce_filter.vhd hdl/led_toggle.vhd hdl/top.vhd
 	yosys -m ghdl -p 'ghdl hdl/debounce_filter.vhd -e Debounce_Filter; ghdl hdl/led_toggle.vhd -e LED_Toggle; ghdl hdl/top.vhd -e Switch_Debounce_Top; synth_ice40 -json build/top.json'
 
