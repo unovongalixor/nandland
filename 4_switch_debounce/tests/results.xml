@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1708766906" />
-    <testcase name="my_second_test" classname="test_led_toggle" file="/home/sbursten/nandland/4_switch_debounce/tests/test_led_toggle.py" lineno="15" time="0.0008380413055419922" sim_time_ns="6.000001" ratio_time="7159.552829104979" />
+    <property name="random_seed" value="1708767104" />
+    <testcase name="my_second_test" classname="test_led_toggle" file="/home/sbursten/nandland/4_switch_debounce/tests/test_led_toggle.py" lineno="15" time="0.0008382797241210938" sim_time_ns="6.000001" ratio_time="7157.516551281002" />
   </testsuite>
 </testsuites>

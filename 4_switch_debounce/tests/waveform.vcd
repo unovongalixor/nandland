@@ -1,0 +1,78 @@
+$date
+  Sat Feb 24 11:31:44 2024
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module numeric_std $end
+$upscope $end
+$scope module switch_debounce_top $end
+$var reg 1 ! i_clk $end
+$var reg 1 " i_switch_1 $end
+$var reg 1 # o_led_1 $end
+$var reg 1 $ w_debounced_switch $end
+$scope module debounce_filter_inst $end
+$var reg 1 % i_clk $end
+$var reg 1 & i_bouncy $end
+$var reg 1 ' o_debounced $end
+$var integer 32 ( r_count $end
+$var reg 1 ) r_state $end
+$upscope $end
+$scope module led_toggle_inst $end
+$var reg 1 * i_clk $end
+$var reg 1 + i_switch_1 $end
+$var reg 1 , o_led_1 $end
+$var reg 1 - r_led_1 $end
+$var reg 1 . r_switch_1 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+U"
+0#
+0$
+0%
+U&
+0'
+b0 (
+0)
+0*
+0+
+0,
+0-
+0.
+#1000000
+1!
+1%
+b1 (
+1*
+#2000000
+0!
+0%
+0*
+#3000000
+1!
+1%
+b10 (
+1*
+#4000000
+0!
+0%
+0*
+#5000000
+1!
+1%
+b11 (
+1*
+#6000000
+0!
+0%
+0*
