@@ -1,5 +1,5 @@
 **/build/**
-**/__pycache__
-**/sim_build
-**/results.xml
-**/waveform.vcd
+**/**/__pycache__
+**/**/sim_build
+**/**/results.xml
+**/**/waveform.vcd

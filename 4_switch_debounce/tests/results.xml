@@ -1,7 +1,7 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1708767420" />
-    <testcase name="my_second_test" classname="test_led_toggle" file="/home/sbursten/nandland/4_switch_debounce/tests/test_led_toggle.py" lineno="15" time="0.000885009765625" sim_time_ns="6.000001" ratio_time="6779.587336827586" />
-    <testcase name="my_second_test" classname="test_debounce_filter" file="/home/sbursten/nandland/4_switch_debounce/tests/test_debounce_filter.py" lineno="15" time="0.0005285739898681641" sim_time_ns="6.000001" ratio_time="11351.298238296798" />
+    <property name="random_seed" value="1708767673" />
+    <testcase name="my_second_test" classname="test_led_toggle" file="/home/sbursten/nandland/4_switch_debounce/tests/test_led_toggle.py" lineno="15" time="0.0008401870727539062" sim_time_ns="6.000001" ratio_time="7141.2679325493755" />
+    <testcase name="my_second_test" classname="test_debounce_filter" file="/home/sbursten/nandland/4_switch_debounce/tests/test_debounce_filter.py" lineno="15" time="0.0005121231079101562" sim_time_ns="6.000001" ratio_time="11715.934913549348" />
   </testsuite>
 </testsuites>
