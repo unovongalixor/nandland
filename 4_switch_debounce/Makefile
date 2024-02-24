@@ -11,5 +11,3 @@ pack: build/top.asc
 
 program: build/top.bin
 	iceprog build/top.bin
-
-
