@@ -2,6 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity Switch_Debounce_Top is
+    generic (DEBOUNCE_LIMIT : integer := 250000);
     port (
     i_Clk       : in  std_logic;
     i_Switch_1  : in  std_logic;
@@ -12,7 +13,7 @@ architecture RTL of Switch_Debounce_Top is
     signal w_Debounced_Switch : std_logic;
 begin
     Debounce_Filter_Inst : entity work.Debounce_Filter
-    generic map (DEBOUNCE_LIMIT => 250000)
+    generic map (DEBOUNCE_LIMIT => DEBOUNCE_LIMIT)
     port map (
                  i_Clk => i_Clk,
                  i_Bouncy => i_Switch_1,

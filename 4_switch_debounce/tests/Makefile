@@ -10,6 +10,7 @@ TOPLEVEL = switch_debounce_top
 MODULE = test_led_toggle,test_debounce_filter
 
 # SIM_ARGS ?= --vcd=waveform.vcd
+SIM_ARGS += -gDEBOUNCE_LIMIT=30
 
 # include cocotb's make rules to take care of the simulator setup
 include $(shell cocotb-config --makefiles)/Makefile.sim

@@ -5,7 +5,7 @@ from cocotb.triggers import FallingEdge, Timer
 async def generate_clock(dut):
     """Generate clock pulses."""
 
-    for cycle in range(10):
+    while True:
         dut.i_Clk.value = 0
         await Timer(1, units="ns")
         dut.i_Clk.value = 1
@@ -13,13 +13,38 @@ async def generate_clock(dut):
 
 
 @cocotb.test()
-async def my_second_test(dut):
-    """Try accessing the design."""
+async def debounce_test(dut):
+    """
+    test the output filter
 
+    note that DEBOUNCE_LIMIT is set to 30 in tests/Makefile
+    """
     await cocotb.start(generate_clock(dut))  # run the clock "in the background"
-
-    await Timer(5, units="ns")  # wait a bit
     await FallingEdge(dut.i_Clk)  # wait for falling edge/"negedge"
 
-    dut._log.info("o_LED_1 is %s", dut.led_toggle_inst.o_LED_1.value)
-    assert dut.led_toggle_inst.o_LED_1.value[0] == 0, "o_LED_1[0] is not 0!"
+    # debounce filter output starts low
+    assert dut.debounce_filter_inst.o_Debounced.value[0] == 0, "o_Debounced is not 0!"
+
+    # toggle input
+    dut.debounce_filter_inst.i_Bouncy.value = 1
+
+    await FallingEdge(dut.i_Clk)
+    assert dut.debounce_filter_inst.i_Bouncy.value[0] == 1, "i_Bouncy is not 1!"
+
+    # validate that output isn't set (enough time hasn't elapsed)
+    assert dut.debounce_filter_inst.o_Debounced.value[0] == 0, "o_Debounced is not 0!"
+
+    # wait a bit (not enough to trigger the led)
+    await Timer(25, units="ns")
+
+    count = int(dut.debounce_filter_inst.r_Count.value)
+
+    # validate that led isn't set (enough time hasn't elapsed)
+    assert dut.debounce_filter_inst.o_Debounced.value[0] == 0, "o_Debounced is not 0!"
+
+    # wait more than DEBOUNCE_LIMIT
+    await Timer(50, units="ns")
+
+    # validate that output is high
+    assert dut.debounce_filter_inst.o_Debounced.value[0] == 1, "o_Debounced is not 1!"
+
