@@ -7,7 +7,7 @@ TOPLEVEL_LANG ?= vhdl
 VHDL_SOURCES += $(PWD)/../hdl/*
 
 TOPLEVEL = switch_debounce_top
-MODULE = test_led_toggle,test_debounce_filter
+MODULE = test_top,test_led_toggle,test_debounce_filter
 
 # SIM_ARGS ?= --vcd=waveform.vcd
 SIM_ARGS += -gDEBOUNCE_LIMIT=30
