@@ -26,7 +26,7 @@ async def debounce_test(dut):
     await FallingEdge(dut.i_Clk)
     await FallingEdge(dut.i_Clk)
 
-    await Timer(135, units="ns")
+    await Timer(60, units="ns")
 
     # debounce filter output starts low
     assert dut.debounce_filter_inst.o_Debounced.value[0] == 0, "o_Debounced is not 0!"
@@ -41,7 +41,7 @@ async def debounce_test(dut):
     assert dut.debounce_filter_inst.o_Debounced.value[0] == 0, "o_Debounced is not 0!"
 
     # wait a bit (not enough to trigger the led)
-    await Timer(25, units="ns")
+    await Timer(30, units="ns")
 
     count = int(dut.debounce_filter_inst.r_Count.value)
 
@@ -49,7 +49,7 @@ async def debounce_test(dut):
     assert dut.debounce_filter_inst.o_Debounced.value[0] == 0, "o_Debounced is not 0!"
 
     # wait more than DEBOUNCE_LIMIT
-    await Timer(50, units="ns")
+    await Timer(60, units="ns")
 
     # validate that output is high
     assert dut.debounce_filter_inst.o_Debounced.value[0] == 1, "o_Debounced is not 1!"
